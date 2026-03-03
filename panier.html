@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Panier | Grilles Points de Croix</title>
+    <meta name="description" content="Consultez votre panier de grilles de points de croix et finalisez votre commande. Paiement sécurisé et téléchargement instantané.">
+    <link rel="canonical" href="https://votre-site.com/panier">
+    
+    <link rel="stylesheet" href="styles.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">🧵 GrillesPointsDeCroix</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="catalogue.html">Catalogue</a></li>
+                    <li><a href="apropos.html">À Propos</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="nav-icons">
+                    <a href="panier.html" class="cart-icon">
+                        <span>🛒</span>
+                        <span id="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart-page">
+            <div class="container">
+                <h1 class="section-title">Votre Panier</h1>
+                
+                <div class="cart-content">
+                    <!-- Liste des articles -->
+                    <div class="cart-items-section">
+                        <div id="cart-items">
+                            <!-- Les articles seront ajoutés dynamiquement par JavaScript -->
+                        </div>
+                        
+                        <div class="cart-actions">
+                            <button id="clear-cart" class="btn btn-secondary">Vider le Panier</button>
+                            <a href="catalogue.html" class="btn btn-primary">Continuer mes Achats</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Récapitulatif -->
+                    <div class="cart-summary">
+                        <h2>Récapitulatif</h2>
+                        <div class="summary-row">
+                            <span>Sous-total</span>
+                            <span id="subtotal">0,00€</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>TVA (20%)</span>
+                            <span id="tax">0,00€</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="cart-total">0,00€</span>
+                        </div>
+                        
+                        <div class="secure-payment">
+                            <p>🔒 Paiement 100% sécurisé</p>
+                            <div class="payment-methods">
+                                <span>💳</span>
+                                <span>🔵</span>
+                                <span>🟣</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formulaire de commande -->
+                <div class="checkout-section" id="checkout-section">
+                    <h2 class="section-title">Informations de Livraison</h2>
+                    
+                    <form id="checkout-form" class="checkout-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstname">Prénom *</label>
+                                <input type="text" id="firstname" name="firstname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastname">Nom *</label>
+                                <input type="text" id="lastname" name="lastname" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                            <small>Les liens de téléchargement seront envoyés à cette adresse</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Téléphone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Adresse</label>
+                            <input type="text" id="address" name="address">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">Ville</label>
+                                <input type="text" id="city" name="city">
+                            </div>
+                            <div class="form-group">
+                                <label for="postal">Code Postal</label>
+                                <input type="text" id="postal" name="postal">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="country">Pays</label>
+                            <select id="country" name="country">
+                                <option value="FR">France</option>
+                                <option value="BE">Belgique</option>
+                                <option value="CH">Suisse</option>
+                                <option value="LU">Luxembourg</option>
+                                <option value="CA">Canada</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Recevoir nos offres et grilles gratuites</label>
+                        </div>
+                        
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">J'accepte les <a href="conditions.html">conditions générales de vente</a> *</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            💳 Payer et Télécharger
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Section panier vide -->
+                <div class="empty-cart-message" id="empty-cart-message" style="display: none;">
+                    <div class="empty-cart-content">
+                        <div class="empty-cart-icon">🛒</div>
+                        <h2>Votre panier est vide</h2>
+                        <p>Découvrez notre catalogue et ajoutez vos premières grilles !</p>
+                        <a href="catalogue.html" class="btn btn-primary">Voir le Catalogue</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>GrillesPointsDeCroix</h3>
+                    <p>Votre source de grilles de points de croix de qualité.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="catalogue.html">Catalogue</a></li>
+                        <li><a href="apropos.html">À Propos</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Informations</h3>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="conditions.html">Conditions Générales</a></li>
+                        <li><a href="confidentialite.html">Politique de Confidentialité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>📧 contact@grillespointscroix.com</li>
+                        <li>📞 +33 1 23 45 67 89</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 GrillesPointsDeCroix. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Ajouter les styles spécifiques au panier
+        const cartStyles = document.createElement('style');
+        cartStyles.textContent = `
+            .cart-page {
+                padding: 4rem 0;
+            }
+            
+            .cart-content {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+            
+            .cart-items-section {
+                background: white;
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .cart-actions {
+                display: flex;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+            
+            .cart-summary {
+                background: var(--bg-light);
+                padding: 2rem;
+                border-radius: 8px;
+                height: fit-content;
+            }
+            
+            .cart-summary h2 {
+                margin-bottom: 1.5rem;
+                color: var(--primary-color);
+            }
+            
+            .summary-row {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.8rem 0;
+                border-bottom: 1px solid #ddd;
+            }
+            
+            .summary-row.total {
+                font-size: 1.3rem;
+                font-weight: bold;
+                color: var(--primary-color);
+                border-bottom: none;
+                margin-top: 1rem;
+            }
+            
+            .secure-payment {
+                margin-top: 2rem;
+                text-align: center;
+                padding: 1rem;
+                background: white;
+                border-radius: 8px;
+            }
+            
+            .secure-payment p {
+                color: #27ae60;
+                font-weight: 600;
+                margin-bottom: 0.5rem;
+            }
+            
+            .payment-methods {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                font-size: 2rem;
+            }
+            
+            .checkout-section {
+                max-width: 800px;
+                margin: 0 auto;
+                background: white;
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+            
+            .checkout-form {
+                margin-top: 2rem;
+            }
+            
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+            
+            .form-group small {
+                display: block;
+                margin-top: 0.3rem;
+                color: var(--text-light);
+                font-size: 0.9rem;
+            }
+            
+            .form-group.checkbox {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .form-group.checkbox input {
+                width: auto;
+            }
+            
+            .form-group.checkbox label {
+                margin-bottom: 0;
+            }
+            
+            .btn-large {
+                width: 100%;
+                padding: 1rem;
+                font-size: 1.1rem;
+                margin-top: 1rem;
+            }
+            
+            .empty-cart-message {
+                text-align: center;
+                padding: 4rem 2rem;
+            }
+            
+            .empty-cart-content {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .empty-cart-icon {
+                font-size: 5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .empty-cart-content h2 {
+                margin-bottom: 1rem;
+                color: var(--text-color);
+            }
+            
+            .empty-cart-content p {
+                margin-bottom: 2rem;
+                color: var(--text-light);
+            }
+            
+            @media (max-width: 768px) {
+                .cart-content {
+                    grid-template-columns: 1fr;
+                }
+                
+                .form-row {
+                    grid-template-columns: 1fr;
+                }
+            }
+        `;
+        document.head.appendChild(cartStyles);
+    </script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

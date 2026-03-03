@@ -1,0 +1,17 @@
+# Robots.txt pour Grilles Points de Croix
+
+User-agent: *
+Allow: /
+
+# Autoriser l'accès aux fichiers importants
+Allow: /styles.css
+Allow: /script.js
+Allow: /images/
+
+# Interdire l'accès aux fichiers système
+Disallow: /admin/
+Disallow: /private/
+Disallow: *.log$
+
+# Sitemap
+Sitemap: https://votre-site.com/sitemap.xml
